@@ -5,13 +5,28 @@ public class Persona {
     
     private int idpersona;
     private String nombre;
-    private String apellidos;
+    private String apellido;
     private String cedula;
     private String direccion;
     private String correo;
     private String telefono;
 
-    
+    public Persona(int idpersona, String nombre, String apellido, String cedula, String direccion, String correo, String telefono) {
+        this.idpersona = idpersona;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.direccion = direccion;
+        this.correo = correo;
+        this.telefono = telefono;
+    }
+
+ public Persona() {
+    }
+
+    public Persona(int idpersona) {
+        this.idpersona = idpersona;
+    }
     public int getIdpersona() {
         return idpersona;
     }
@@ -29,11 +44,11 @@ public class Persona {
     }
 
     public String getApellidos() {
-        return apellidos;
+        return apellido;
     }
 
     public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+        this.apellido = apellidos;
     }
 
     public String getCedula() {
@@ -67,10 +82,10 @@ public class Persona {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-    // @Override
-    //public String toString() {
-        //return "Persona{" + "idPersona=" + idpersona + ", cedula=" + cedula + ", nombres=" + nombre + ", apellidos=" + apellidos + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + '}';
-   // }
+     @Override
+    public String toString() {
+        return "Persona{" + "idPersona=" + idpersona + ", cedula=" + cedula + ", nombres=" + nombre + ", apellidos=" + apellido + ", direccion=" + direccion + ", correo=" + correo + ", telefono=" + telefono + '}';
+    }
     
     
 }

@@ -8,26 +8,28 @@ import javax.swing.JOptionPane;
 
 public class Conectar {
     //Usuario de workbeanch
-    private final String user="root";
-    //contraseña de Workbeanch
-    private final String password="jssnoe02";
-    private final String url="jdbc:mysql://Localhost:3306/bdconexion? useUnicode=true&use"
-            + "JDBCCompliantTimezoneShift=true&useLegacyDatetmeCode=false&serverTimezone=UTC";
-    
-    public Connection con(){
-        Connection conectar = null;
-        
-        try { 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conectar = DriverManager.getConnection(url,user,password);
-            //Mensaje que demuestra que se reaizó la conexion
-            JOptionPane.showMessageDialog(null, "Conexion Establecida Exitosamente");
-            } catch (ClassNotFoundException error){
-                //Mensaje en caso de que no se realice la conexion, ademas nos dice el error
-                JOptionPane.showMessageDialog(null, "Error al Conectar con la Base de Datos "+error);
-            }catch (SQLException error){
-                
-            }return conectar;
+    private Connection conexion;
+    //declaramos los dadtos de conexion
+    private static final String user = "root";
+    private static final String pass = "jssnoe02";
+    private static final String url = "jdbc:mysql://localhost:3306/ejerciciobd? useUnicode=true&use"
+            + " JDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+
+    public Connection conectarBaseDatos() {
+        //reseteamos null a la conexion de la BD
+        conexion = null;
+        try {
+            //conexion a la BD
+            conexion = (Connection) DriverManager.getConnection(url, user, pass);
+            //comprobacion
+            if (conexion != null) {
+                System.out.println("Conexion exitosa");
+            }
+            //mensaje de error
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return conexion;
     }
     
 }
